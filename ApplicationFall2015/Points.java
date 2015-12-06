@@ -16,31 +16,31 @@ public class Points {
 	public int[] findNewPosition() {
 		int newX = x;
 		int newY = y;
-		boolean reversed = false;
+		boolean redirect = false;
 		for (int i = 0; i < path.length(); i++) {
 			if (path.charAt(i) == '~') {
-				reversed = !reversed;
+				redirect = !redirect;
 			} else {
 				if (path.charAt(i) == 'v' || path.charAt(i) == '^') {
-					newY += newDirection(reversed, path.charAt(i));
+					newY += newDirection(redirect, path.charAt(i));
 				} else {
-					newX += newDirection(reversed, path.charAt(i));
+					newX += newDirection(redirect, path.charAt(i));
 				}
 			}
 		}
 		return new int[] { newX, newY };
 	}
 
-	private int newDirection(boolean reversed, char c) {
+	private int newDirection(boolean redirect, char c) {
 		switch (c) {
-		case '>':
-			return reversed ? -1 : 1;
-		case '<':
-			return reversed ? 1 : -1;
 		case '^':
-			return reversed ? 1 : -1;
+			return redirect ? 1 : -1;
 		case 'v':
-			return reversed ? -1 : 1;
+			return redirect ? -1 : 1;
+		case '<':
+			return redirect ? 1 : -1;
+		case '>':
+			return redirect ? -1 : 1;
 		default:
 			return 0;
 		}
@@ -60,4 +60,5 @@ public class Points {
 		System.out.printf("%d %d", newPos[0], newPos[1]);
 
 	}
+
 }

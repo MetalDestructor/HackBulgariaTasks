@@ -10,7 +10,7 @@ public class DependenciesResolving {
 	private String[] availablePackages;
 	private Packages all;
 	private Packages dependencies;
-	private final String installedModulesPath = "src\\ApplicationFall2015\\DependenciesResolving\\modules\\installed_modules";
+	private final String installedModulesPath = "\\modules\\installed_modules";
 
 	public DependenciesResolving(Packages all, Packages dependencies) {
 		this.all = all;

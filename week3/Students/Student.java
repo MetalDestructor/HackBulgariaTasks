@@ -2,18 +2,18 @@ package Students;
 
 public class Student {
 	private String name;
-	private int age;
+	private int grade;
 
 	public String getName() {
 		return name;
 	}
 
-	public int getAge() {
-		return age;
+	public int getGrade() {
+		return grade;
 	}
 	
-	public Student(String name, int age) {
+	public Student(String name, int grade) {
 		this.name = name;
-		this.age = age;
+		this.grade = grade;
 	}
 }
