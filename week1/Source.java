@@ -10,12 +10,12 @@ public class Source {
 		Random rnd = new Random();
 		// System.out.println(isOdd(5));
 		// System.out.println(isPrime(5));
-		//
+
 		int[] arr = new int[10];
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = rnd.nextInt(10) + 1;
 		}
-		//
+
 		// System.out.println(min(arr));
 		// System.out.println(kthMin(4, arr));
 		// System.out.println(getAverage(arr));
@@ -42,7 +42,7 @@ public class Source {
 		// System.out.println(maximalScalarSum(a, b));
 		// System.out.println(maxSpan(a));
 		// System.out.println(canBalance(a));
-		// missing
+		// TODO
 		// System.out.println(reverseMe("Test"));
 		// System.out.println(reverseEveryChar("Ima love Magi"));
 		// System.out.println(isPalindrome("hpdsdph"));
@@ -54,18 +54,18 @@ public class Source {
 		// System.out.println(sumOfNumbers("12 99 1"));
 		// System.out.println(anagram("Ello","llEo"));
 		// System.out.println(hasAnagramOf("asd","wuegranafdasdandfha"));
-		// missing
+		// TODO
 		// System.out.println(isHack(8191));
 		// System.out.println(nextHack(8031));
 		// System.out.println(countVowels("A nice day to code!"));
 		// System.out.println(countConsonants("Theistareykjarbunga"));
 		// System.out.println(pScore(198));
-		// missing
-		// missing
+		// TODO
+		// TODO
 		// System.out.println(friday_years("1753", "2000"));
 		// System.out.println(isCreditCardValid("79927398715"));
 		// System.out.println(is_an_bn("aaaaabbbbb"));
-		// missing
+		// TODO
 		// System.out.println(zero_insert(555));
 
 	}
@@ -245,7 +245,7 @@ public class Source {
 		return (sum1 == sum2) ? true : false;
 	}
 
-	int[][] rescale(int[][] original, int newWidth, int newHeight) { //nope
+	int[][] rescale(int[][] original, int newWidth, int newHeight) { // nope
 		int[][] arr = new int[5][5];
 		return arr;
 	}
@@ -367,7 +367,7 @@ public class Source {
 		return false;
 	}
 
-	static int[][] convertToGreyscale(String imgPath) { //nope
+	static int[][] convertToGreyscale(String imgPath) { // nope
 		int[][] greyscale = new int[6][6];
 		return greyscale;
 	}
@@ -437,11 +437,11 @@ public class Source {
 		return p;
 	}
 
-	static String numbersToMessage(int[] pressedSequence) { //nope
+	static String numbersToMessage(int[] pressedSequence) { // nope
 		return "";
 	}
 
-	static int[] messageToNumbers(String message) { //nope
+	static int[] messageToNumbers(String message) { // nope
 		int[] nums = new int[2];
 		return nums;
 	}
@@ -503,7 +503,7 @@ public class Source {
 		int br2 = 0;
 		while (word.charAt(i) == current && i < word.length()) {
 			++br2;
-			if(i == word.length() -1){
+			if (i == word.length() - 1) {
 				break;
 			}
 			++i;
@@ -513,46 +513,42 @@ public class Source {
 		else
 			return true;
 	}
-	
+
 	static String reduce_file_path(String path) {
-		//not finished
+		// not finished
 		StringBuilder sb = new StringBuilder();
 		int hold = 0;
 		for (int i = 0; i < path.length(); i++) {
-			if(path.charAt(i) == '/'){
-				if(i == 0){
+			if (path.charAt(i) == '/') {
+				if (i == 0) {
 					sb.append(path.charAt(i));
-				}
-				else{
+				} else {
 					for (int j = hold; j < i; j++) {
-						
+
 					}
 				}
-				
-				
+
 			}
 		}
 		return path;
 	}
-	
-	static int zero_insert(int n){ //buggy
+
+	static int zero_insert(int n) { // buggy
 		String num = Integer.toString(n);
 		int fNum;
 		StringBuilder sb = new StringBuilder();
 		for (int i = 1; i < num.length(); i++) {
-			int hold1 = Character.getNumericValue(num.charAt(i-1));
+			int hold1 = Character.getNumericValue(num.charAt(i - 1));
 			int hold2 = Character.getNumericValue(num.charAt(i));
-			if( num.charAt(i-1) == num.charAt(i)){
-				sb.append(num.charAt(i-1));
+			if (num.charAt(i - 1) == num.charAt(i)) {
+				sb.append(num.charAt(i - 1));
 				sb.append('0');
 				sb.append(num.charAt(i));
-			}
-			else if((hold1 + hold2)%10 == 0){
-				sb.append(num.charAt(i-1));
+			} else if ((hold1 + hold2) % 10 == 0) {
+				sb.append(num.charAt(i - 1));
 				sb.append('0');
 				sb.append(num.charAt(i));
-			}
-			else{
+			} else {
 				sb.append(num.charAt(i));
 			}
 		}

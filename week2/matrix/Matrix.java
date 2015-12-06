@@ -30,8 +30,8 @@ public class Matrix {
 	}
 	
 	public void operate(MatrixOperation op){
-		op.withPixel(,  ,]);
-		
+		Pixel[][] arr = new Pixel[5][5];
+		op.withPixel(14,15,arr);
 	}
 	@Override
 	public String toString() {
