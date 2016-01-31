@@ -2,8 +2,8 @@ package week4;
 
 public class Point {
 	private static final Point start = new Point(0,0);
-	private Double x;
-	private Double y;
+	private final Double x;
+	private final Double y;
 	
 	public Point(double x, double y){
 		this.x = x;
@@ -14,8 +14,7 @@ public class Point {
 		this.y = 0.0;
 	}
 	public Point(Point p){
-		p.x = getX();
-		p.y = getY();
+		this(p.getX(), p.getY());
 	}
 	public double getX(){
 		return this.x;
@@ -47,7 +46,7 @@ public class Point {
         hash = hash * 23 + y.hashCode();
         return hash;
 	}
-	public static LineSegment Add(Point point1, Point point2){
+	public static LineSegment Add(Point point1, Point point2) throws Exception{
 		return new LineSegment(point1,point2);
 	}
 	

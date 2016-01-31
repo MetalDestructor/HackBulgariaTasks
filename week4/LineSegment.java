@@ -1,21 +1,23 @@
 package week4;
 
 public class LineSegment implements Comparable {
-	private Point start;
-	private Point end;
+	private final Point start;
+	private final Point end;
 
-	public LineSegment(Point start, Point end) {
+	public LineSegment(Point start, Point end) throws Exception {
 		if (start.equals(end)) {
 			System.out.println("Cannot create a line segment with zero length");
+			this.start = null;
+			this.end = null;
+			throw new Exception();
 		} else {
 			this.start = start;
 			this.end = end;
 		}
 	}
 
-	public LineSegment(LineSegment ls) {
-		ls.start = this.start;
-		ls.end = this.end;
+	public LineSegment(LineSegment ls) throws Exception {
+		this(ls.getStart(), ls.getEnd());
 	}
 	
 	public Point getStart(){
@@ -72,7 +74,7 @@ public class LineSegment implements Comparable {
 		}
 		return 0;
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		LineSegment ls = new LineSegment(new Point(3, 5), new Point(9, 8));
 		LineSegment ls2 = new LineSegment(new Point(3, 5), new Point(9, 8));
 		System.out.println(ls.getLength());

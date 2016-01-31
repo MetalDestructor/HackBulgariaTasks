@@ -3,17 +3,23 @@ package week5;
 public class Main {
 
 	public static void main(String[] args) {
+		double[] dimentions1 = new double[5];
+		dimentions1[0] = 3.5;
+		dimentions1[1] = 1.5;
+		dimentions1[2] = 1.7;
+		dimentions1[3] = 9.1;
+		dimentions1[4] = 4.3;
+		double[] dimentions2 = new double[5];
+		dimentions2[0] = 4.6;
+		dimentions2[1] = 2.4;
+		dimentions2[2] = 9.6;
+		dimentions2[3] = 1.2;
+		dimentions2[4] = 6.2;
+		Vector vector1 = new Vector(dimentions1);
+		Vector vector2 = new Vector(dimentions2);
 		
-		CountryManager manager = CountryManager.getInstance();
-		manager.add(new Country("bgn", "Bulgaria", true, 0.2));
-		manager.add(new Country("uk", "United Kingdom", false, 0.1));
+		vector1.getCoordinates(3);
 		
-		try {
-			System.out.println(VatTaxCalculator.CalculateTaxFormatted(0.1));
-		} catch (NotSupportedCountryException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 }

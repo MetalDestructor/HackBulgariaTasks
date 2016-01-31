@@ -1,13 +1,17 @@
 package week4;
 
 public class Triangle implements Shape{
-	private Point A;
-	private Point B;
-	private Point C;
+	private final Point A;
+	private final Point B;
+	private final Point C;
 
-	public Triangle(Point pt1, Point pt2, Point pt3) {
-		if (A.getX() == B.getX() && B.getX() == C.getX()) {
+	public Triangle(Point pt1, Point pt2, Point pt3) throws Exception {
+		if (this.A.getX() == this.B.getX() && this.B.getX() == this.C.getX()) {
 			System.out.println("Points are on the same axis.");
+			this.A = null;
+			this.B = null;
+			this.C = null;
+			throw new Exception();
 		} else {
 			A = pt1;
 			B = pt2;
@@ -15,10 +19,8 @@ public class Triangle implements Shape{
 		}
 	}
 
-	public Triangle(Triangle tri) {
-		tri.A = this.A;
-		tri.B = this.B;
-		tri.C = this.C;
+	public Triangle(Triangle tri) throws Exception {
+		this(tri.A, tri.B, tri.C);
 	}
 
 	public Point getUpperLeft() {
@@ -33,22 +35,22 @@ public class Triangle implements Shape{
 		return C;
 	}
 
-	public LineSegment getLeftEdge() {
+	public LineSegment getLeftEdge() throws Exception {
 		LineSegment ls = new LineSegment(getUpperLeft(), getLowerLeft());
 		return ls;
 	}
 
-	public LineSegment getRightEdge() {
+	public LineSegment getRightEdge() throws Exception {
 		LineSegment ls = new LineSegment(getUpperLeft(), getLowerRight());
 		return ls;
 	}
 
-	public LineSegment getBottomEdge() {
+	public LineSegment getBottomEdge() throws Exception {
 		LineSegment ls = new LineSegment(getLowerLeft(), getLowerRight());
 		return ls;
 	}
 
-	public LineSegment displayBase() {
+	public LineSegment displayBase() throws Exception {
 		if (getLeftEdge().compareTo(getRightEdge()) == 1) {
 			if (getLeftEdge().compareTo(getBottomEdge()) == 1) {
 				return getLeftEdge();
@@ -93,7 +95,6 @@ public class Triangle implements Shape{
 
 	@Override
 	public Point getCenter() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

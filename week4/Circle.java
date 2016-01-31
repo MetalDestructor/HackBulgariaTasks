@@ -1,27 +1,27 @@
 package week4;
 
 public class Circle implements Shape{
-	private Double radius;
+	private final Double radius;
 	
 	public Circle(Double radius){
 		this.radius = radius;
 	}
 	
 	public Circle(Circle circle){
-		circle.radius = this.radius;
+		this(circle.radius);
 	}
 	
 	public Point getLeftBound(){
-		return null;
+		return new Point(-radius, 0);
 	}
 	public Point getRightBound(){
-		return null;
+		return new Point(radius, 0); 
 	}
 	public Point getTopBound(){
-		return null;
+		return new Point(0, radius);
 	}
 	public Point getBottomBound(){
-		return null;
+		return new Point(0, -radius);
 	}
 
 	@Override
@@ -41,20 +41,19 @@ public class Circle implements Shape{
 
 	@Override
 	public Double getPerimeter() {
-		// TODO Auto-generated method stub
-		return null;
+		Double p = Math.PI*2*radius;
+		return p;
 	}
 
 	@Override
 	public Double getArea() {
-		// TODO Auto-generated method stub
-		return null;
+		Double area = Math.PI*Math.pow(radius, 2);
+		return area;
 	}
 
 	@Override
 	public Point getCenter() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Point(0, 0);
 	}
 	
 

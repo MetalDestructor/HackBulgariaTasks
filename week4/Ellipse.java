@@ -1,20 +1,24 @@
 package week4;
 
 public class Ellipse implements Shape {
-	private LineSegment majorAxis;
-	private LineSegment minorAxis;
-	
-	public Ellipse(LineSegment majorAxis, LineSegment minorAxis) {
+	private final LineSegment majorAxis;
+	private final LineSegment minorAxis;
+	private final double max;
+	private final double min;
+
+	public Ellipse(LineSegment majorAxis, LineSegment minorAxis) throws Exception {
 		if (majorAxis == minorAxis) {
 			System.out.println("Points are on the origin");
+			throw new Exception();
 		}
 		this.majorAxis = majorAxis;
 		this.minorAxis = minorAxis;
+		max = this.majorAxis.getLength();
+		min = this.minorAxis.getLength();
 	}
 
-	public Ellipse(Ellipse elipse) {
-		elipse.majorAxis = this.majorAxis;
-		elipse.minorAxis = this.minorAxis;
+	public Ellipse(Ellipse elipse) throws Exception {
+		this(elipse.majorAxis, elipse.minorAxis);
 	}
 
 	public Point getTopBound() {
@@ -39,19 +43,18 @@ public class Ellipse implements Shape {
 
 	@Override
 	public Double getPerimeter() {
-		// TODO Auto-generated method stub
-		return null;
+		Double p = Math.PI * (3 * (min + max) - Math.sqrt((3 * min + max) * (3 * max + min)));
+		return p;
 	}
 
 	@Override
 	public Double getArea() {
-		// TODO Auto-generated method stub
-		return null;
+		Double area = Math.PI * max * min;
+		return area;
 	}
 
 	@Override
 	public Point getCenter() {
-		// TODO Auto-generated method stub
-		return null;
+		return new Point(0, 0);
 	}
 }

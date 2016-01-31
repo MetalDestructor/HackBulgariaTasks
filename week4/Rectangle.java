@@ -1,21 +1,21 @@
 package week4;	
 
 public class Rectangle implements Shape{
-	private Point topLeft;
-	private Point botRight;
+	private final Point topLeft;
+	private final Point botRight;
 
-	public Rectangle(Point pt1, Point pt2) {
+	public Rectangle(Point pt1, Point pt2) throws Exception {
 		if (pt1.getX() == pt2.getX()) {
 			System.out.println("Points are on the same axis.");
+			throw new Exception();
 		} else {
 			topLeft = pt1;
 			botRight = pt2;
 		}
 	}
 
-	public Rectangle(Rectangle rect) {
-		rect.topLeft = this.topLeft;
-		rect.botRight = this.botRight;
+	public Rectangle(Rectangle rect) throws Exception {
+		this(rect.topLeft, rect.botRight);
 	}
 
 	public Point getUpperLeft() {
@@ -36,22 +36,22 @@ public class Rectangle implements Shape{
 		return botRight;
 	}
 
-	public LineSegment getLeftEdge() {
+	public LineSegment getLeftEdge() throws Exception {
 		LineSegment ls = new LineSegment(getUpperLeft(), getLowerLeft());
 		return ls;
 	}
 
-	public LineSegment getRightEdge() {
+	public LineSegment getRightEdge() throws Exception {
 		LineSegment ls = new LineSegment(getUpperRight(), getLowerRight());
 		return ls;
 	}
 
-	public LineSegment getTopEdge() {
+	public LineSegment getTopEdge() throws Exception {
 		LineSegment ls = new LineSegment(getUpperLeft(), getUpperRight());
 		return ls;
 	}
 
-	public LineSegment getBottomEdge() {
+	public LineSegment getBottomEdge() throws Exception {
 		LineSegment ls = new LineSegment(getLowerLeft(), getLowerRight());
 		return ls;
 	}
@@ -109,7 +109,7 @@ public class Rectangle implements Shape{
 		return res;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		Point pt1 = new Point(-1.0, 5.0);
 		Point pt2 = new Point(4.0, 2.0);
 		Rectangle rect = new Rectangle(pt1, pt2);
