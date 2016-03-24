@@ -6,13 +6,13 @@ Course materials &amp; problems for HackBulgaria's Programming 101 with Java. St
 
 This is a detailed program about the course, separated in weeks
 
-### [Week 1](https://github.com/HackBulgaria/Programming101-Java/blob/master/week01)
+### Week 1
 
 * Installing Linux
 * Introducing Java with syntax, types & language constructs
 * Problem solving & debugging using Java
 
-### [Week 2](https://github.com/HackBulgaria/Programming101-Java/blob/master/week01)
+### Week 2
 
 * Introducing shell & basic Linux commands
 * Working with Java command-line tools - java, javac, jar
